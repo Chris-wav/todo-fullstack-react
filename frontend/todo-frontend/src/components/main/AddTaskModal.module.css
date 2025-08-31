@@ -1,0 +1,277 @@
+.overlay {
+  font-family: "Nunito", "Link", sans-serif;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease, background-color 0.3s ease;
+}
+
+.show {
+  opacity: 1;
+  pointer-events: auto;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal {
+  background-color: #ffffff;
+  border-radius: 16px;
+  padding: 2rem;
+  width: 90%;
+  max-width: 500px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  transform: translateY(-20px);
+  opacity: 0;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.show .modal {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.addForm {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.label {
+  display: flex;
+  flex-direction: column;
+  font-weight: 500;
+  color: #004d52;
+}
+
+.input,
+.textarea {
+  padding: 0.6rem 1rem;
+  border-radius: 12px;
+  border: 2px solid #007c91;
+  font-size: 16px;
+  font-family: "Arial", sans-serif;
+  transition: all 0.2s ease;
+}
+
+.input:focus,
+.textarea:focus {
+  border-color: #004d52;
+  outline: none;
+  transform: translateY(-1px);
+}
+
+.checkbox {
+  margin-top: 0.5rem;
+  width: 18px;
+  height: 18px;
+  accent-color: #007c91;
+  cursor: pointer;
+}
+
+.buttonGroup {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 1rem;
+}
+
+.submitBtn,
+.cancelBtn {
+  padding: 10px 20px;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: none;
+  background-color: #007c91;
+  color: white;
+}
+
+.cancelBtn {
+  background-color: #cccccc;
+  color: #333;
+}
+
+.submitBtn:hover {
+  background-color: #004d52;
+}
+
+.cancelBtn:hover {
+  background-color: #999999;
+}
+
+.closeBtn {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: none;
+  border: none;
+  font-size: 24px;
+  font-weight: bold;
+  cursor: pointer;
+  color: #004d52;
+  transition: color 0.2s ease;
+}
+
+.closeBtn:hover {
+  color: #007c91;
+}
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease, background-color 0.3s ease;
+}
+
+.show {
+  opacity: 1;
+  pointer-events: auto;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal {
+  background-color: #ffffff;
+  border-radius: 16px;
+  padding: 2rem;
+  width: 90%;
+  max-width: 500px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  transform: translateY(-20px);
+  opacity: 0;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.show .modal {
+  transform: translateY(0);
+  opacity: 1;
+  animation: modalBounce 0.4s ease forwards;
+}
+
+.addForm {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.label {
+  display: flex;
+  flex-direction: column;
+  font-weight: 500;
+  color: #004d52;
+}
+
+.input,
+.textarea {
+  padding: 0.6rem 1rem;
+  border-radius: 12px;
+  border: 2px solid #007c91;
+  font-size: 16px;
+  font-family: "Arial", sans-serif;
+  transition: all 0.2s ease;
+}
+
+.input:focus,
+.textarea:focus {
+  border-color: #004d52;
+  outline: none;
+  transform: translateY(-1px);
+}
+
+.checkbox {
+  margin-top: 0.5rem;
+  width: 18px;
+  height: 18px;
+  accent-color: #007c91;
+  cursor: pointer;
+}
+
+.buttonGroup {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 1rem;
+}
+
+.submitBtn,
+.cancelBtn {
+  padding: 10px 20px;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: none;
+  background-color: #007c91;
+  color: white;
+}
+
+.cancelBtn {
+  background-color: #cccccc;
+  color: #333;
+}
+
+.submitBtn:hover {
+  background-color: #004d52;
+}
+
+.cancelBtn:hover {
+  background-color: #999999;
+}
+
+.closeBtn {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: none;
+  border: none;
+  font-size: 24px;
+  font-weight: bold;
+  cursor: pointer;
+  color: #004d52;
+  transition: color 0.2s ease;
+}
+
+.closeBtn:hover {
+  color: #007c91;
+}
+
+@keyframes modalBounce {
+  0% {
+    transform: translateY(-50px);
+    opacity: 0;
+  }
+  70% {
+    transform: translateY(20px);
+    opacity: 1;
+  }
+  80% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}

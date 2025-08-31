@@ -1,0 +1,74 @@
+.headerContainer {
+  width: 100%;
+  height: 100px;
+  background-color: #8bb9cf;
+  color: #1a1a1a;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  font-family: "Nunito", "Link", sans-serif;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  position: relative;
+  overflow: hidden;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.headerContainer:hover {
+  background-color: #77a8bb;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+}
+.title {
+  font-size: 2.2rem;
+  letter-spacing: 2px;
+  transition: transform 0.5s ease, color 0.5s ease;
+  cursor: default;
+}
+
+.title:hover {
+  transform: scale(1.05) rotate(-1deg);
+  color: #083d4c;
+  cursor: default;
+}
+
+.settings,
+.calendar {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 12px;
+  background-color: #ffffffaa;
+  color: #1a1a1a;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease,
+    background-color 0.3s ease;
+}
+
+.settings:hover,
+.calendar:hover {
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  background-color: #f0f0f0;
+}
+
+.settings:active,
+.calendar:active {
+  transform: translateY(0) scale(0.98);
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 768px) {
+  .headerContainer {
+    flex-direction: column;
+    height: auto;
+    padding: 15px 0;
+  }
+
+  .title {
+    margin: 10px 0;
+  }
+
+  .settings,
+  .calendar {
+    margin: 5px 0;
+  }
+}

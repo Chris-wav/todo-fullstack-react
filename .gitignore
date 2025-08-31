@@ -1,0 +1,28 @@
+# Node modules
+node_modules/
+
+# Log files
+npm-debug.log
+yarn-error.log
+
+# Environment variables
+.env
+
+# Build folders
+/dist
+/build
+
+# Windows files
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Editor / IDE
+.vscode/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+
+# Misc
+*.log

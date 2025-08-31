@@ -1,0 +1,46 @@
+.toggleButtonsWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.toggleButtonsContainer {
+  width: 30%;
+  display: flex;
+  gap: 0;
+  justify-content: center;
+  align-items: center;
+  margin: 1.5rem 0;
+  font-family: "Nunito", "Link", sans-serif;
+}
+
+.toggleButtonsContainer button {
+  flex: 1;
+  padding: 10px 20px;
+  background-color: white;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 16px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: all 0.25s ease;
+}
+
+/* Hover effect για κουμπιά */
+.toggleButtonsContainer button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+  background-color: #f0f9fa; /* ελαφρύ highlight στο hover */
+}
+
+.toggleButtonsContainer button.active {
+  background-color: #b2ebf2;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+@media (max-width: 480px) {
+  .toggleButtonsContainer button {
+    font-size: 14px;
+    padding: 8px 16px;
+  }
+}

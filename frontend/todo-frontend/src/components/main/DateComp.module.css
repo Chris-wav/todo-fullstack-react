@@ -1,0 +1,79 @@
+.dateContainer {
+  margin: 0 auto;
+  width: 40%;
+  height: 30%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: "Nunito", "Link", sans-serif;
+  border: none;
+  gap: 0.3rem;
+  justify-content: center;
+  border-radius: 5px;
+  padding: 1rem 2rem;
+  box-shadow: 0px 5px 2px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, width 0.9s ease,
+    max-width 0.3s ease;
+}
+
+.dateContainer:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  z-index: 100;
+  width: 100%;
+  max-width: 100%;
+}
+
+.day {
+  font-size: 30px;
+  font-weight: 700;
+  color: #006064; 
+  margin: 0;
+  padding: 0;
+  transition: color 0.3s ease;
+}
+
+.day:hover {
+  color: #004d52;
+  cursor: default;
+}
+
+.monthDateContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.month,
+.dateNumber {
+  font-size: 22px;
+  font-weight: 500;
+  color: #007c91;
+  padding: 0.2rem 0.5rem;
+  border-radius: 8px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.month:hover,
+.dateNumber:hover {
+  cursor: default;
+  background-color: #b2ebf2;
+  transform: scale(1.05);
+}
+
+/* Responsive για κινητά */
+@media (max-width: 480px) {
+  .day {
+    font-size: 40px;
+  }
+
+  .month,
+  .dateNumber {
+    font-size: 18px;
+  }
+
+  .dateContainer {
+    padding: 0.8rem 1.5rem;
+  }
+}
