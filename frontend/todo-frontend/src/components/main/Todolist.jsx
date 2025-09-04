@@ -1,4 +1,4 @@
-import { fetchTasks } from "../api/todos";
+import { deleteById, fetchTasks } from "../api/todos";
 import { useEffect } from "react";
 import styles from "./Todolist.module.css";
 import NoTasksMessage from "./NoTasksMessage";
@@ -6,7 +6,11 @@ import NoTasksMessage from "./NoTasksMessage";
 const TodoList = ({ setTasks, tasks }) => {
   const API_URL = import.meta.env.VITE_API_URL;
 
-  // Toggle completed status
+  const handleDelete = (taskId) => {
+    setTasks((previousTasks) =>
+      previousTasks.filter((task) => task._id !== taskId)
+    );
+  };
   const handleToggle = async (taskId, newCompleted) => {
     console.log("Toggling task:", taskId, "to completed:", newCompleted);
     try {
@@ -30,7 +34,6 @@ const TodoList = ({ setTasks, tasks }) => {
     }
   };
 
-  // Load tasks on mount
   useEffect(() => {
     const loadTasks = async () => {
       const data = await fetchTasks();
@@ -39,7 +42,6 @@ const TodoList = ({ setTasks, tasks }) => {
     loadTasks();
   }, [setTasks]);
 
-  // Αν δεν υπάρχουν tasks, εμφανίζει όμορφο μήνυμα
   if (!tasks || tasks.length === 0) {
     return (
       <div className={styles.noTasksContainer}>
@@ -50,22 +52,43 @@ const TodoList = ({ setTasks, tasks }) => {
 
   return (
     <div className={styles.toDo}>
-      {tasks.map((task) => (
+      {tasks.map((task) => {console.log("Task:", task.title, "Description:", task.description);
+       return (
+
         <div key={task._id} className={styles.card}>
-          <div className={styles.detailsContainer}>
+          <div className={styles.leftSection}>
             <h3 className={styles.title}>{task.title}</h3>
             <p className={styles.description}>{task.description}</p>
+            <div className={styles.checkboxContainer}>
+              <label
+                htmlFor={`task-${task._id}`}
+                className={styles.checkboxLabel}
+              >
+                Completed:
+              </label>
+              <input
+                type="checkbox"
+                id={`task-${task._id}`}
+                checked={task.completed}
+                onChange={() => handleToggle(task._id, !task.completed)}
+                className={styles.checkbox}
+              />
+            </div>
           </div>
-          <div className={styles.checkboxContainer}>
-            <input
-              type="checkbox"
-              checked={task.completed}
-              onChange={() => handleToggle(task._id, !task.completed)}
-              className={styles.checkbox}
-            />
+
+          <div className={styles.rightSection}>
+            <button
+              className={styles.deleteButton}
+              onClick={() => {
+                deleteById(task._id);
+                handleDelete(task._id);
+              }}
+            >
+              Delete
+            </button>
           </div>
         </div>
-      ))}
+      )})}
     </div>
   );
 };

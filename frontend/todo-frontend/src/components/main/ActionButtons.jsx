@@ -1,12 +1,9 @@
 import styles from "./ActionButtons.module.css";
-import { clearAllCompletedCall } from "../api/todos";
 
-const ActionButtons = ({ setIsAddTaskModalOpen, setTasks }) => {
-  const completedTasksHandler = () =>
-    setTasks((prevTasks) =>
-      prevTasks.filter((task) => task.completed === false)
-    );
-
+const ActionButtons = ({
+  setIsAddTaskModalOpen,
+  handleClearClick,
+}) => {
   return (
     <div className={styles.actionButtonsContainer}>
       <button
@@ -15,13 +12,7 @@ const ActionButtons = ({ setIsAddTaskModalOpen, setTasks }) => {
       >
         + Add task
       </button>
-      <button
-        className={styles.voiceButton}
-        onClick={async () => {
-          await clearAllCompletedCall();
-          completedTasksHandler();
-        }}
-      >
+      <button className={styles.voiceButton} onClick={handleClearClick}>
         Clear Completed Tasks
       </button>
     </div>

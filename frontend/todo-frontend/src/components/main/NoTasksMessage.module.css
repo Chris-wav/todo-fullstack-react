@@ -8,7 +8,8 @@
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
   margin: 1rem auto;
   max-width: 400px;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Nunito", "Link", sans-serif;
+
   transition: all 0.3s ease;
 }
 

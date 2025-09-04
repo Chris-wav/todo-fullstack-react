@@ -16,3 +16,29 @@ html {
   align-items: center; /* οριζόντια κέντρο */
   justify-content: center;
 }
+
+p {
+  font-size: 1rem;
+  color: #ff6b6b;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  background: #fff0f0;
+  padding: 0.8rem 1rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(255, 107, 107, 0.2);
+  text-align: center;
+  width: 20%;
+  margin: 15px auto;
+  font-family: "Nunito", "Link", sans-serif;
+  transform: translateY(10px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+p.visible {
+  opacity: 1;
+  transform: translateY(6);
+  -webkit-transform: translateY(6);
+  -moz-transform: translateY(6);
+  -ms-transform: translateY(6);
+  -o-transform: translateY(6);
+}

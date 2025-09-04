@@ -1,10 +1,11 @@
 import styles from "./ProgressStatsToggle.module.css";
-const ProgressStatsToggle = () => {
+const ProgressStatsToggle = ({ setProgressIsActive, progressIsActive }) => {
   return (
     <div className={styles.toggleButtonsWrapper}>
       <div className={styles.toggleButtonsContainer}>
-        <button onClick={() => setActiveView("progress")}>Progress</button>
-        <button onClick={() => setActiveView("stats")}>Task Stats</button>
+        <button onClick={() => setProgressIsActive(!progressIsActive)}>
+          Progress
+        </button>
       </div>
     </div>
   );

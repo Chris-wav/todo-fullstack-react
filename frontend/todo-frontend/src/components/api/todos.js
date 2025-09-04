@@ -57,7 +57,17 @@ export const insertTask = async (title, description, completed) => {
 export const clearAllCompletedCall = async () => {
   console.log("📡 Calling clearAllCompleted API:", `${API_URL}/completed`);
 
-  const response = await fetch(`${API_URL}/completed`, {
+    await fetch(`${API_URL}/completed`, {
+    method: "DELETE",
+    mode: "cors",
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
+};
+
+export const deleteById = async (taskId) => {
+    await fetch(`${API_URL}/${taskId}`, {
     method: "DELETE",
     mode: "cors",
     headers: {

@@ -1,0 +1,110 @@
+.modalOverlay {
+  font-family: "Nunito", "Link", sans-serif;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  animation: fadeIn 0.3s ease forwards;
+}
+
+.modalContent {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(12px);
+  padding: 2rem;
+  border-radius: 20px;
+  width: 90%;
+  max-width: 400px;
+  text-align: center;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  animation: slideUp 0.3s ease forwards;
+}
+
+.modalTitle {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #444;
+  margin-bottom: 0.75rem;
+}
+
+.modalMessage {
+  font-size: 1rem;
+  color: #666;
+  margin-bottom: 1.5rem;
+  line-height: 1.4;
+}
+
+.modalButtons {
+  display: flex;
+  justify-content: space-around;
+  gap: 1rem;
+}
+
+.cancelButton {
+  padding: 0.6rem 1.2rem;
+  border-radius: 12px;
+  border: none;
+  background: #f1eceb;
+  color: #555;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.cancelButton:hover {
+  background: #e0dcdc;
+  transform: scale(1.05);
+}
+
+.confirmButton {
+  padding: 0.6rem 1.2rem;
+  border-radius: 12px;
+  border: none;
+  background: #ff6b6b;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.confirmButton:hover {
+  background: #ff4d4f;
+  transform: scale(1.05);
+}
+.noCompletedMessage {
+  font-size: 1rem;
+  color: #ff6b6b;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  background: #fff0f0;
+  padding: 0.8rem 1rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(255, 107, 107, 0.2);
+  text-align: center;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
