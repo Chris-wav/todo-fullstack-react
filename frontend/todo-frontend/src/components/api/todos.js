@@ -8,8 +8,8 @@ export const fetchTasks = async () => {
 
     const response = await fetch(API_URL);
     const text = await response.text();
-    console.log("📄 Raw response text:", text); // Αυτό θα σου δείξει ακριβώς τι επιστρέφει
-    const json = JSON.parse(text); // Προσπάθεια να μετατρέψεις σε JSON
+    console.log("📄 Raw response text:", text);
+    const json = JSON.parse(text);
 
     if (!json.status) {
       throw new Error(json.message || "Server returned an error");

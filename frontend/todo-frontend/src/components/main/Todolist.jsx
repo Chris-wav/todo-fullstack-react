@@ -12,7 +12,6 @@ const TodoList = ({ setTasks, tasks }) => {
     );
   };
   const handleToggle = async (taskId, newCompleted) => {
-    console.log("Toggling task:", taskId, "to completed:", newCompleted);
     try {
       const response = await fetch(`${API_URL}/${taskId}`, {
         method: "PATCH",
