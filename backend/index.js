@@ -5,7 +5,7 @@ const path = require("path"); // <--- για static serve
 require("dotenv").config();
 
 const app = express();
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 5000;
 const toDoRoutes = require("./routes/tasks.routes");
 
 // Enable CORS for specific front-end origins
@@ -15,7 +15,7 @@ app.use(corsMiddleware);
 app.use(express.json());
 
 // Mount todo routes
-app.use("/api/todos/", toDoRoutes);
+app.use("/api/todos", toDoRoutes);
 
 // Serve frontend build
 app.use(express.static(path.join(__dirname, "../frontend/todo-frontend/dist")));
