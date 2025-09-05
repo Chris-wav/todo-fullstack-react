@@ -4,28 +4,29 @@ console.log("API URL:", API_URL);
 export const fetchTasks = async () => {
   try {
     const response = await fetch(API_URL);
-    const text = await response.json(); // διάβασε απευθείας JSON
-    console.log("Response JSON:", text);
-    console.log("Response text:", text);
+
     if (!response.ok) {
       throw new Error(
         `Oops! Unable to load tasks. Server responded with ${response.status} ${response.statusText}`
       );
     }
-    const json = await response.json();
+
+    const json = await response.json(); // διάβασε JSON μόνο μια φορά
+    console.log("Response JSON:", json);
 
     if (!json.status) {
       throw new Error(json.message || "Server returned an error");
     }
+
     const data = json.data;
     if (!Array.isArray(data)) {
       throw new Error("Unexpected data format received from server.");
     }
+
     console.log("Fetched tasks from backend:", data);
     return data;
   } catch (err) {
     console.error(err);
-
     return [
       {
         _id: "error-1",
@@ -35,12 +36,6 @@ export const fetchTasks = async () => {
   }
 };
 
-export const insertTask = async (title, description, completed) => {
-  const data = {
-    title,
-    description,
-    completed,
-  };
 
   const response = await fetch(API_URL, {
     method: "POST",
