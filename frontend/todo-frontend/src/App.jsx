@@ -2,7 +2,7 @@ import { useState, useRef } from "react";
 import "./App.css";
 import Header from "./components/header/Header";
 import DateComp from "./components/main/DateComp";
-import TodoList from "./components/main/TodoList";
+import TodoList from "./components/main/Todolist";
 import ActionButtons from "./components/main/ActionButtons";
 import ProgressStatsToggle from "./components/main/ProgressStatsToggle";
 import AddTaskModal from "./components/main/AddTaskModal";
