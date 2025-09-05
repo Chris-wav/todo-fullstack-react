@@ -4,6 +4,11 @@ A modern fullstack To-Do application built with **React.js**, demonstrating prac
 
 ---
 
+
+## Link for the app: https://todo-fullstack-react.onrender.com
+
+## Demonstration: <img width="1917" height="955" alt="image" src="https://github.com/user-attachments/assets/b117b7f6-a3d2-4ad3-b14c-bbaea3b95b50" /> <img width="1916" height="948" alt="image" src="https://github.com/user-attachments/assets/578f2320-94c9-49c9-9c46-4441a4975913" />
+
 ## Features
 - Add, edit, and delete tasks
 - Mark tasks as completed
@@ -65,9 +70,6 @@ This application uses a **simple backend** built with Node.js, Express.js, and M
 
 
 
-## Link for the app: https://todo-fullstack-react.onrender.com
-
-## Demonstration: <img width="1917" height="955" alt="image" src="https://github.com/user-attachments/assets/b117b7f6-a3d2-4ad3-b14c-bbaea3b95b50" /> <img width="1916" height="948" alt="image" src="https://github.com/user-attachments/assets/578f2320-94c9-49c9-9c46-4441a4975913" />
 
 
 
