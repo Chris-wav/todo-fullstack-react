@@ -3,30 +3,21 @@ console.log("API URL:", API_URL);
 
 export const fetchTasks = async () => {
   try {
+    const API_URL = import.meta.env.VITE_API_URL;
+    console.log("🔥 Fetching tasks from URL:", API_URL);
+
     const response = await fetch(API_URL);
-
-    if (!response.ok) {
-      throw new Error(
-        `Oops! Unable to load tasks. Server responded with ${response.status} ${response.statusText}`
-      );
-    }
-
-    const json = await response.json(); // διάβασε JSON μόνο μια φορά
-    console.log("Response JSON:", json);
+    const text = await response.text();
+    console.log("📄 Raw response text:", text); // Αυτό θα σου δείξει ακριβώς τι επιστρέφει
+    const json = JSON.parse(text); // Προσπάθεια να μετατρέψεις σε JSON
 
     if (!json.status) {
       throw new Error(json.message || "Server returned an error");
     }
 
-    const data = json.data;
-    if (!Array.isArray(data)) {
-      throw new Error("Unexpected data format received from server.");
-    }
-
-    console.log("Fetched tasks from backend:", data);
-    return data;
+    return json.data;
   } catch (err) {
-    console.error(err);
+    console.error("💥 fetchTasks error:", err);
     return [
       {
         _id: "error-1",
@@ -38,19 +29,49 @@ export const fetchTasks = async () => {
 
 
 export const insertTask = async (data) => {
-  const response = await fetch(API_URL, {
-    method: "POST",
-    mode: "cors",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(data),
-  });
-  if (!response.ok) {
-    throw new Error("Failed to insert task");
+  try {
+    console.log("📡 Sending POST request to:", API_URL);
+    console.log("Request body:", data);
+
+    const response = await fetch(API_URL, {
+      method: "POST",
+      mode: "cors",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    });
+
+
+    const rawText = await response.text();
+    console.log("Raw response:", rawText);
+
+
+    if (!response.ok) {
+      throw new Error(
+        `Failed to insert task. Server responded with status ${response.status}`
+      );
+    }
+
+
+    let json;
+    try {
+      json = JSON.parse(rawText);
+    } catch (err) {
+      throw new Error("Response is not valid JSON");
+    }
+
+    console.log("Parsed JSON response:", json);
+
+    if (!json.status) {
+      throw new Error(json.message || "Server returned an error");
+    }
+
+    return json.data || json;
+  } catch (err) {
+    console.error("❌ insertTask error:", err);
+    throw err;
   }
-  const json = await response.json();
-  return json;
 };
 
 
