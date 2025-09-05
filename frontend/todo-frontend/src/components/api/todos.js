@@ -3,9 +3,9 @@ console.log("API URL:", API_URL);
 
 export const fetchTasks = async () => {
   try {
-    console.log("Fetching tasks from:", API_URL);
     const response = await fetch(API_URL);
-    const text = await response.text();
+    const text = await response.json(); // διάβασε απευθείας JSON
+    console.log("Response JSON:", text);
     console.log("Response text:", text);
     if (!response.ok) {
       throw new Error(
