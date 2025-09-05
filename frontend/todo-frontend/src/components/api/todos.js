@@ -27,53 +27,27 @@ export const fetchTasks = async () => {
   }
 };
 
+export const insertTask = async (title, description, completed) => {
+  const data = {
+    title,
+    description,
+    completed,
+  };
 
-export const insertTask = async (data) => {
-  try {
-    console.log("📡 Sending POST request to:", API_URL);
-    console.log("Request body:", data);
-
-    const response = await fetch(API_URL, {
-      method: "POST",
-      mode: "cors",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(data),
-    });
-
-
-    const rawText = await response.text();
-    console.log("Raw response:", rawText);
-
-
-    if (!response.ok) {
-      throw new Error(
-        `Failed to insert task. Server responded with status ${response.status}`
-      );
-    }
-
-
-    let json;
-    try {
-      json = JSON.parse(rawText);
-    } catch (err) {
-      throw new Error("Response is not valid JSON");
-    }
-
-    console.log("Parsed JSON response:", json);
-
-    if (!json.status) {
-      throw new Error(json.message || "Server returned an error");
-    }
-
-    return json.data || json;
-  } catch (err) {
-    console.error("❌ insertTask error:", err);
-    throw err;
+  const response = await fetch(API_URL, {
+    method: "POST",
+    mode: "cors",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(data),
+  });
+  if (!response.ok) {
+    throw new Error("Failed to insert task");
   }
+  const backEndData = await response.json();
+  return backEndData;
 };
-
 
 export const clearAllCompletedCall = async () => {
   console.log("📡 Calling clearAllCompleted API:", `${API_URL}/completed`);
