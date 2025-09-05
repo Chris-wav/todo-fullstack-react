@@ -33,7 +33,7 @@ cd frontend
 npm install
 npm run dev
 
-## Deployment
+### Deployment
 
 This app is deployed using **Render**:
 - Backend API: Node.js + Express.js hosted on Render
@@ -42,7 +42,7 @@ This app is deployed using **Render**:
 This setup allows you to access the app online without running it locally.
 
 
-## Note on Backend
+### Note on Backend
 
 This application uses a **simple backend** built with Node.js, Express.js, and MongoDB.  
 
@@ -64,9 +64,14 @@ This application uses a **simple backend** built with Node.js, Express.js, and M
   Debugging and error handling in fullstack apps
 
 
-**LINK for the app**: https://todo-fullstack-react.onrender.com
 
-**APP demonstration**:<img width="1920" height="951" alt="image" src="https://github.com/user-attachments/assets/7e3fa954-4b9d-4342-b546-3fe2a2300062" />
-    <img width="1918" height="941" alt="image" src="https://github.com/user-attachments/assets/2d55a6f5-af64-4f91-86a3-e6bd8263fda7" />
+## Link for the app: https://todo-fullstack-react.onrender.com
+
+## Demonstration: <img width="1917" height="955" alt="image" src="https://github.com/user-attachments/assets/b117b7f6-a3d2-4ad3-b14c-bbaea3b95b50" /> <img width="1916" height="948" alt="image" src="https://github.com/user-attachments/assets/578f2320-94c9-49c9-9c46-4441a4975913" />
+
+
+
+
+
 
 
