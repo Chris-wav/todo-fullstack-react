@@ -6,8 +6,8 @@
     "dev": "nodemon index.js",
     "start-backend": "node ../backend/index.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node index.js",
-    "build": "npm install --prefix client && npm run build --prefix client"
+    "start": "node backend/index.js",
+    "build": "npm install --prefix frontend/todo-frontend && npm run build --prefix frontend/todo-frontend"
   },
   "author": "",
   "license": "ISC",
