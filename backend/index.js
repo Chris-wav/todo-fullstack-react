@@ -13,7 +13,10 @@ app.use(corsMiddleware);
 
 // Parse incoming JSON requests
 app.use(express.json());
-
+app.use((req, res, next) => {
+  console.log("Incoming request:", req.method, req.url);
+  next();
+});
 // Mount todo routes
 app.use("/api/todos", toDoRoutes);
 
