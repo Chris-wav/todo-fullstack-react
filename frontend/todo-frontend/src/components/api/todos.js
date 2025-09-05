@@ -37,6 +37,7 @@ export const fetchTasks = async () => {
 };
 
 
+export const insertTask = async (data) => {
   const response = await fetch(API_URL, {
     method: "POST",
     mode: "cors",
@@ -51,6 +52,7 @@ export const fetchTasks = async () => {
   const json = await response.json();
   return json;
 };
+
 
 export const clearAllCompletedCall = async () => {
   console.log("📡 Calling clearAllCompleted API:", `${API_URL}/completed`);
