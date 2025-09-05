@@ -1,3 +1,4 @@
+/* ---------- TodoList Wrapper ---------- */
 .toDo {
   width: 80%;
   margin: 2rem auto;
@@ -20,6 +21,7 @@
   box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
 }
 
+/* ---------- Task Card ---------- */
 .card {
   flex: 0 0 auto;
   width: 80%;
@@ -30,9 +32,9 @@
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
   transition: transform 0.25s ease, box-shadow 0.25s ease;
   scroll-snap-align: start;
-  align-items: center;
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 
 .card:hover {
@@ -40,6 +42,7 @@
   box-shadow: 0 12px 20px rgba(0, 0, 0, 0.15);
 }
 
+/* ---------- Task Text ---------- */
 .title {
   width: auto;
   font-size: 1.5rem;
@@ -54,14 +57,15 @@
   border-radius: 6px;
   padding: 0.2rem 0.4rem;
   background: rgba(255, 255, 255, 0.5);
+  white-space: nowrap;
 }
 
 .title:hover {
   color: #3d5a80;
   letter-spacing: 1.2px;
-  cursor: default;
   box-shadow: 0 2px 8px rgba(61, 90, 128, 0.2);
   background: rgba(255, 255, 255, 0.7);
+  cursor: default;
 }
 
 .description {
@@ -83,145 +87,7 @@
   cursor: default;
 }
 
-.checkbox {
-  margin-top: 5px;
-  width: 24px;
-  height: 24px;
-  border-radius: 0.5rem;
-  border: 2px solid #ccc;
-  background: #fff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
-  transition: all 0.25s ease;
-  position: relative;
-}
-
-.checkbox:hover {
-  transform: scale(1.1);
-  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.15);
-  border-color: #8bb9cf;
-}
-
-.checkbox::after {
-  content: "✓";
-  color: white;
-  font-weight: bold;
-  font-size: 1rem;
-  opacity: 0;
-  transition: all 0.25s ease;
-  position: absolute;
-}
-
-.checkbox.checked {
-  background: #8bb9cf;
-  border-color: #8bb9cf;
-}
-
-.checkbox.checked::after {
-  opacity: 1;
-}
-
-.noTasksContainer {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 40%;
-  max-width: 400px;
-  padding: 30px;
-  min-height: 150px;
-  background-color: #f9f7f6;
-  border: 2px dashed #e0dcdc;
-  border-radius: 12px;
-  text-align: center;
-  color: #555;
-  font-size: 1.2rem;
-  font-style: italic;
-  margin: 40px auto;
-  animation: fadeIn 0.6s forwards;
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.05);
-  transition: transform 0.3s ease, background-color 0.3s ease,
-    border-color 0.3s ease;
-}
-
-@keyframes fadeIn {
-  to {
-    opacity: 1;
-  }
-}
-
-.noTasksContainer:hover {
-  background-color: #f1eceb;
-  border-color: #d8cfcf;
-  transform: scale(1.03);
-}
-
-.taskCard {
-  background: #fff;
-  border-radius: 16px;
-  padding: 16px;
-  margin: 12px 0;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-  overflow: visible;
-}
-
-.taskCard:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
-}
-
-.taskText {
-  flex: 1;
-  font-size: 16px;
-  color: #333;
-}
-
-.deleteButton {
-  width: 65px;
-  height: 37px;
-  border-radius: 12px;
-  border: none;
-  cursor: pointer;
-  background: #ffd6d6;
-  color: #e63946;
-  font-size: 16px;
-  font-weight: 600;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
-  padding: 0 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
-}
-
-.deleteButton:hover {
-  background: #ff9a9a;
-  transform: scale(1.08);
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
-}
-
-.deleteButton:active {
-  transform: scale(0.95);
-  background: #ff7f7f;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
-}
-
-.deleteButton:active {
-  transform: scale(0.95);
-  background: #ff8080;
-}
-
-.deleteContainer {
-  margin-top: 0.5rem;
-}
-
+/* ---------- Checkbox ---------- */
 .checkboxContainer {
   display: flex;
   align-items: center;
@@ -256,4 +122,116 @@
 
 .checkboxLabel:hover {
   color: #3d5a80;
+}
+
+/* ---------- Delete Button ---------- */
+.deleteButton {
+  width: 65px;
+  height: 37px;
+  border-radius: 12px;
+  border: none;
+  cursor: pointer;
+  background: #ffd6d6;
+  color: #e63946;
+  font-size: 16px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+  padding: 0 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+}
+
+.deleteButton:hover {
+  background: #ff9a9a;
+  transform: scale(1.08);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+.deleteButton:active {
+  transform: scale(0.95);
+  background: #ff8080;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+}
+
+/* ---------- No Tasks Message ---------- */
+.noTasksContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 40%;
+  max-width: 400px;
+  padding: 30px;
+  min-height: 150px;
+  background-color: #f9f7f6;
+  border: 2px dashed #e0dcdc;
+  border-radius: 12px;
+  text-align: center;
+  color: #555;
+  font-size: 1.2rem;
+  font-style: italic;
+  margin: 40px auto;
+  animation: fadeIn 0.6s forwards;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease, background-color 0.3s ease,
+    border-color 0.3s ease;
+}
+
+.noTasksContainer:hover {
+  background-color: #f1eceb;
+  border-color: #d8cfcf;
+  transform: scale(1.03);
+}
+
+/* ---------- Animations ---------- */
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+/* ---------- Responsive for mobile ---------- */
+@media (max-width: 768px) {
+  .toDo {
+    width: 95%;
+    padding: 1rem;
+    gap: 1rem;
+  }
+
+  .card {
+    width: 100%;
+    flex-direction: column; /* stack content vertically */
+    align-items: flex-start; /* align items to the left */
+    gap: 0.8rem;
+  }
+
+  .title {
+    font-size: 1.2rem;
+    white-space: normal; /* allow text to wrap */
+  }
+
+  .description {
+    font-size: 0.95rem;
+    width: 100%; /* take full width */
+    margin-bottom: 20px;
+  }
+
+  .checkboxContainer {
+    width: 100%;
+    justify-content: flex-start;
+  }
+
+  .deleteButton {
+    align-self: flex-end; /* move delete button to the bottom-right */
+  }
+}
+
+@media (max-width: 480px) {
+  .noTasksContainer {
+    width: 95%;
+    padding: 15px;
+    font-size: 0.9rem;
+  }
 }

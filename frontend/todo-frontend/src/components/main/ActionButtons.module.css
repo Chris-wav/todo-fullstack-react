@@ -1,3 +1,4 @@
+/* Container for action buttons */
 .actionButtonsContainer {
   display: flex;
   align-items: center;
@@ -7,9 +8,10 @@
   font-family: "Nunito", "Link", sans-serif;
 }
 
+/* Shared button styling */
 .addBtn,
-.voiceButton {
-  background-color: white;
+.clearBtn {
+  background-color: #ffffff;
   border: none;
   border-radius: 12px;
   padding: 10px 20px;
@@ -20,31 +22,26 @@
   transition: all 0.25s ease;
 }
 
+/* Hover effect for subtle lift and color change */
 .addBtn:hover,
-.voiceButton:hover {
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
-  transform: translateY(-2px);
-}
-
-.addBtn:hover,
-.voiceButton:hover {
+.clearBtn:hover {
   background-color: #b2ebf2;
-  border-color: #004d52;
   transform: translateY(-2px);
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
-.voiceButton {
+/* Specific style for Clear Completed button */
+.clearBtn {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 6px;
 }
 
-
+/* Responsive adjustments for mobile */
 @media (max-width: 480px) {
   .addBtn,
-  .voiceButton {
+  .clearBtn {
     font-size: 14px;
     padding: 8px 16px;
   }

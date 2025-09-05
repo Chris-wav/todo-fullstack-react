@@ -8,6 +8,7 @@ import ProgressStatsToggle from "./components/main/ProgressStatsToggle";
 import AddTaskModal from "./components/main/AddTaskModal";
 import ProgressComponent from "./components/main/ProgressComponent";
 import ConfirmModal from "./components/main/ConfirmModal";
+import { ToastContainer } from "react-toastify";
 
 function App() {
   const [tasks, setTasks] = useState([]);
@@ -62,7 +63,19 @@ function App() {
         <AddTaskModal
           isOpen={isAddTaskModalOpen}
           onClose={() => setIsAddTaskModalOpen(false)}
-          setIsAddTaskModalOpen={setIsAddTaskModalOpen}
+          setTasks={setTasks}
+        />
+        <ToastContainer
+          position="top-right"
+          autoClose={3000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          pauseOnHover
+          draggable
+          theme="light"
+          toastClassName="custom-toast"
+          progressClassName="custom-progress"
         />
 
         <ProgressStatsToggle

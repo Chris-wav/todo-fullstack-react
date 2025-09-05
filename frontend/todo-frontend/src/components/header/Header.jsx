@@ -1,11 +1,11 @@
 import styles from "./header.module.css";
+
+// Header component displays app title with subtle hover effects
 const Header = () => {
   return (
-    <div className={styles.headerContainer}>
-      <button className={styles.settings}>Settings</button>
+    <header className={styles.headerContainer}>
       <h1 className={styles.title}>My TO-DO</h1>
-      <button className={styles.calendar}>calendar</button>
-    </div>
+    </header>
   );
 };
 

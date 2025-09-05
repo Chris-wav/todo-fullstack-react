@@ -42,3 +42,12 @@ p.visible {
   -ms-transform: translateY(6);
   -o-transform: translateY(6);
 }
+
+.custom-toast {
+  background-color: #fff;
+  color: #000;
+}
+
+.custom-progress {
+  background: #4fc3f7;
+}

@@ -1,48 +1,40 @@
-const { json } = require("express");
 const Task = require("../models/tasksModel");
 
+// Get all tasks
 exports.findAll = async (req, res) => {
-  console.log("CONSOLE ALL TASKS");
   try {
-    const result = await Task.find();
-    result
-      ? res.json({ status: true, data: result })
+    const tasks = await Task.find();
+    tasks
+      ? res.json({ status: true, data: tasks })
       : res.status(404).json({ status: false, message: "No tasks found" });
   } catch (err) {
     res.status(500).json({ status: false, message: err.message });
   }
 };
 
+// Delete a task by ID
 exports.delete = async (req, res) => {
-  const id = req.params.id;
-  console.log("DELE TASK VIA ID");
+  const { id } = req.params;
   try {
-    const result = await Task.findByIdAndDelete(id);
-    if (!result) {
-      res.status(500).json({ status: false, message: "Task not found" });
-      return;
-    }
-    res.json({ status: true, data: result });
+    const deletedTask = await Task.findByIdAndDelete(id);
+    if (!deletedTask)
+      return res.status(404).json({ status: false, message: "Task not found" });
+
+    res.json({ status: true, data: deletedTask });
   } catch (err) {
     res.status(500).json({ status: false, message: err.message });
   }
 };
 
+// Create a new task
 exports.createTask = async (req, res) => {
-  console.log("INSERT TASK");
+  const taskData = req.body;
+  if (!taskData)
+    return res.status(400).json({ status: false, message: "Request body is empty" });
 
   try {
-    const result = req.body;
-    console.log(result);
-    if (!result) {
-      return res
-        .status(400)
-        .json({ status: false, message: "Request body is empty" });
-    }
-
-    let newTask = new Task(result);
+    const newTask = new Task(taskData);
     await newTask.save();
-    const tasks = await Task.find({});
     res.status(201).json({ status: true, data: newTask });
   } catch (err) {
     if (err.code === 11000) {
@@ -54,9 +46,8 @@ exports.createTask = async (req, res) => {
   }
 };
 
+// Update the completed status of a task
 exports.updateCompleted = async (req, res) => {
-  console.log("UPDATING THE COMPLETED", req.params.id, req.body.completed);
-  console.log("UPDATING THE COMPLETED");
   const { id } = req.params;
   const { completed } = req.body;
 
@@ -64,12 +55,11 @@ exports.updateCompleted = async (req, res) => {
     const updatedTask = await Task.findOneAndUpdate(
       { _id: id },
       { completed },
-      { new: true }
+      { new: true } // επιστρέφει το ενημερωμένο έγγραφο
     );
 
-    if (!updatedTask) {
+    if (!updatedTask)
       return res.status(404).json({ status: false, message: "Task not found" });
-    }
 
     res.json({ status: true, data: updatedTask });
   } catch (err) {
@@ -77,13 +67,12 @@ exports.updateCompleted = async (req, res) => {
   }
 };
 
+// Delete all completed tasks
 exports.deleteCompleted = async (req, res) => {
-  console.log("DELETING COMPLETED TASKS");
   try {
     const result = await Task.deleteMany({ completed: true });
     res.json({ status: true, deletedCount: result.deletedCount });
   } catch (err) {
-    console.error("❌ Error deleting completed tasks:", err);
     res.status(500).json({ status: false, message: err.message });
   }
 };

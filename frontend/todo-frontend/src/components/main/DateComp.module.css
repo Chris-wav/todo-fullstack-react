@@ -1,35 +1,36 @@
+/* DateComp.module.css */
+
+/* Container for the date card */
 .dateContainer {
   margin: 0 auto;
   width: 40%;
-  height: 30%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  font-family: "Nunito", "Link", sans-serif;
-  border: none;
-  gap: 0.3rem;
   justify-content: center;
+  font-family: "Nunito", "Link", sans-serif;
+  gap: 0.3rem;
   border-radius: 5px;
   padding: 1rem 2rem;
-  box-shadow: 0px 5px 2px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease, box-shadow 0.3s ease, width 0.9s ease,
-    max-width 0.3s ease;
+  box-shadow: 0px 5px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, width 0.9s ease;
 }
 
+/* Hover effect for smooth UX */
 .dateContainer:hover {
   transform: translateY(-3px);
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
-  z-index: 100;
   width: 100%;
   max-width: 100%;
+  z-index: 100;
 }
 
+/* Day name styling */
 .day {
   font-size: 30px;
   font-weight: 700;
-  color: #006064; 
+  color: #006064;
   margin: 0;
-  padding: 0;
   transition: color 0.3s ease;
 }
 
@@ -38,13 +39,14 @@
   cursor: default;
 }
 
+/* Container for month and date number */
 .monthDateContainer {
   display: flex;
-  flex-direction: row;
   align-items: center;
   gap: 0.5rem;
 }
 
+/* Month and date number styling */
 .month,
 .dateNumber {
   font-size: 22px;
@@ -62,7 +64,7 @@
   transform: scale(1.05);
 }
 
-/* Responsive για κινητά */
+/* Responsive design for mobile screens */
 @media (max-width: 480px) {
   .day {
     font-size: 40px;

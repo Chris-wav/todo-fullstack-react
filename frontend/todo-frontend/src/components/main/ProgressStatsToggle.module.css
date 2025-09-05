@@ -1,50 +1,46 @@
-.toggleButtonsWrapper {
+/* Wrapper for the toggle button */
+.toggleWrapper {
   display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.toggleButtonsContainer {
-  width: 15%;
-  display: flex;
-  gap: 0;
   justify-content: center;
   align-items: center;
   margin: 1.5rem 0;
   font-family: "Nunito", "Link", sans-serif;
+  width: 200px;
+  margin: 10px auto;
 }
 
-.toggleButtonsContainer button {
+/* Individual toggle button */
+.toggleButton {
   flex: 1;
   padding: 10px 20px;
-  background-color: white;
-  border-radius: 5px;
-  border: none;
+  background-color: #ffffff;
+  border-radius: 12px;
+  border: 2px solid #007c91;
   cursor: pointer;
   font-weight: 600;
   font-size: 16px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12);
   transition: all 0.25s ease;
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  -ms-border-radius: 5px;
-  -o-border-radius: 5px;
+  width: 200px;
 }
 
-/* Hover effect για κουμπιά */
-.toggleButtonsContainer button:hover {
+/* Hover effect for button */
+.toggleButton:hover {
   transform: translateY(-2px);
   box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
-  background-color: #f0f9fa; /* ελαφρύ highlight στο hover */
+  background-color: #b2ebf2; /* subtle highlight */
 }
 
-.toggleButtonsContainer button.active {
-  background-color: #b2ebf2;
+/* Active state styling */
+.toggleButton.active {
+  background-color: #007c91;
+  color: #ffffff;
   box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
 }
 
+/* Responsive adjustments for mobile devices */
 @media (max-width: 480px) {
-  .toggleButtonsContainer button {
+  .toggleButton {
     font-size: 14px;
     padding: 8px 16px;
   }

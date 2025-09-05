@@ -50,14 +50,14 @@ export const insertTask = async (title, description, completed) => {
   if (!response.ok) {
     throw new Error("Failed to insert task");
   }
-  const backEndData = await response.json();
-  console.log(backEndData);
+  const json = await response.json();
+  return json;
 };
 
 export const clearAllCompletedCall = async () => {
   console.log("📡 Calling clearAllCompleted API:", `${API_URL}/completed`);
 
-    await fetch(`${API_URL}/completed`, {
+  await fetch(`${API_URL}/completed`, {
     method: "DELETE",
     mode: "cors",
     headers: {
@@ -67,7 +67,7 @@ export const clearAllCompletedCall = async () => {
 };
 
 export const deleteById = async (taskId) => {
-    await fetch(`${API_URL}/${taskId}`, {
+  await fetch(`${API_URL}/${taskId}`, {
     method: "DELETE",
     mode: "cors",
     headers: {

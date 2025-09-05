@@ -17,3 +17,20 @@
   transform: translateY(-2px);
   box-shadow: 0 6px 10px rgba(0, 0, 0, 0.1);
 }
+
+/* ---------- Responsive for message container ---------- */
+@media (max-width: 768px) {
+  .messageContainer {
+    max-width: 60%;
+    padding: 1.2rem;
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .messageContainer {
+    max-width: 95%;
+    padding: 1rem;
+    font-size: 0.9rem;
+  }
+}

@@ -2,30 +2,32 @@ const mongoose = require("mongoose");
 
 const Schema = mongoose.Schema;
 
-let taskSchema = new Schema({
-    title:{
+let taskSchema = new Schema(
+  {
+    title: {
       type: String,
-      required:[true, 'This is a required field'],
-      max:100,
-      unique:true,
-      trim:true,
-      lowecase:true
+      required: [true, "This is a required field"],
+      maxLength: 100,
+      unique: true,
+      trim: true,
+      lowercase: true,
     },
-    description:{
+    description: {
       type: String,
-      required:false,
-      max:1500,
-      unique:false,
-      trim:true,
-      lowercase:true
+      max: 1500,
+      unique: false,
+      trim: true,
+      lowercase: true,
     },
-    completed:{
+    completed: {
       type: Boolean,
-      default:false
-    }
-}, {
-  collection:'tasks',
-  timestamps: true
-});
+      default: false,
+    },
+  },
+  {
+    collection: "tasks",
+    timestamps: true,
+  }
+);
 
 module.exports = mongoose.model("task", taskSchema);
